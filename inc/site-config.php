@@ -109,7 +109,7 @@ define('NO_THUMBNAIL_IMG', IMG_STORAGE . '/no-picture.png');
 define('IMAGE_PLACEHOLDER_250x150', ASSETS_URL . '/images/no-picture.png');
 define('IMG_SOCIAL_ICONS', IMG_STORAGE . '/icons/social/');
 define('IMG_PAYMENTS_ICONS', IMG_STORAGE . '/icons/payment/');
-define('USEFUL_RESOURCES_BLOCK_IMGS_PATH', get_template_directory_uri() . '/assets/images/resources-and-guides');
+// Removed: USEFUL_RESOURCES_BLOCK_IMGS_PATH (no longer needed)
 
 // External placeholder images (keeping for compatibility)
 define('IMAGE_PLACEHOLDER_150', 'https://via.placeholder.com/150');
