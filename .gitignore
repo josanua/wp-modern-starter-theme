@@ -1,0 +1,11 @@
+node_modules
+vendor
+package-lock.json
+composer.lock
+phpcs.xml.dist
+plugins/.DS_Store
+.DS_Store
+/.DS_Store
+.DS_Store/*
+.DS_Store/
+*/.DS_Store
