@@ -2,24 +2,23 @@
 /**
  * Recent Posts Section
  *
- * Displays latest blog posts with featured post layout.
- * Uses BEM methodology for CSS classes and semantic HTML structure.
+ * Simple example of displaying recent posts.
+ * Developers: Modify this template to fit your design needs.
  *
- * @package wp_modern_starter_main_theme
- * @since 1.2.0
+ * @package wp_modern_starter
+ * @since 1.0.0
  */
 
-// Section configuration
-const BLOCK_TITLE                = 'Recent Posts from the Blog';
-const VIEW_BLOG_LINK_TEXT        = 'See more blog posts';
-const IMAGE_PLACEHOLDER_ALT_TEXT = 'WordPress development tutorials and programming guides';
+// Basic configuration - modify as needed
+$posts_title = site_config('content.posts_title', 'Latest Posts');
+$posts_count = site_config('content.posts_per_page', 6);
 
-// Custom query setup
+// Query recent posts
 $args = array(
 	'post_type'      => 'post',
-	'posts_per_page' => FRONT_PAGE_RECENT_POSTS_NUM, // change posts numbs
+	'posts_per_page' => $posts_count,
 );
-$custom_query = new WP_Query( $args );
+$recent_posts = new WP_Query( $args );
 ?>
 
 <?php if ( isset( $custom_query ) && $custom_query->have_posts() ) : ?>
