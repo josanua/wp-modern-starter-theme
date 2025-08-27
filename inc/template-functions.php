@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package wp_modern_starter_main_theme
+ * @package wp_modern_starter
  */
 
 /**

@@ -7,7 +7,7 @@
  * Comprehensive showcase of all design tokens, components, and utilities
  * for testing and development purposes.
  *
- * @package wp_modern_starter_main_theme
+ * @package wp_modern_starter
  * @since 1.2.0
  */
 

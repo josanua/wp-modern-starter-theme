@@ -8,7 +8,7 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package wp_modern_starter_main_theme
+ * @package wp_modern_starter
  */
 
 /**

@@ -6,7 +6,7 @@
  * Contains all SEO-related functions and optimizations for the wp_modern_starter theme.
  * Works alongside Yoast SEO plugin without conflicts.
  *
- * @package wp_modern_starter_main_theme
+ * @package wp_modern_starter
  * @since 1.2.0
  */
 

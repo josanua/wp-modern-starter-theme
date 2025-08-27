@@ -2,7 +2,7 @@
 /**
  * wp_modern_starter main theme Theme Customizer
  *
- * @package wp_modern_starter_main_theme
+ * @package wp_modern_starter
  */
 
 /**

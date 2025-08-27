@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package wp_modern_starter_main_theme
+ * @package wp_modern_starter
  */
 
 get_header();

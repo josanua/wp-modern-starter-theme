@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package wp_modern_starter_main_theme
+ * @package wp_modern_starter
  */
 
 get_header();

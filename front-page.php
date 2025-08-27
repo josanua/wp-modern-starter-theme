@@ -12,7 +12,7 @@
  * - index.php
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- * @package wp_modern_starter_main_theme
+ * @package wp_modern_starter
  * @since 1.2.0
  */
 

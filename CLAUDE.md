@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a **personal WordPress theme** called "wpforpro" for the wpforpro.com blog. Built on the Underscores (_s) framework with optimized Bootstrap 5, this theme is specifically designed for a WordPress full-stack developer's personal use.
+This is **WP Modern Starter**, a WordPress theme framework for experienced developers. Built on the Underscores (_s) foundation with modern development tools, this framework provides a solid starting point for custom theme development.
 
 **Key Characteristics:**
-- **Personal Project**: Custom theme for wpforpro.com blog only
-- **Developer-Focused**: Built for full-stack WordPress developer usage
-- **No Universal Compatibility**: Not designed for selling or non-programmer users
-- **Modern Architecture**: Implements SASS 7-1 architecture and component-driven design
-- **Performance Optimized**: Custom Bootstrap build with 60% size reduction
+- **Developer Framework**: Designed for experienced WordPress theme developers
+- **Client Project Ready**: Professional starting point for custom themes
+- **Modern Architecture**: Vite build system, SASS 7-1, Bootstrap 5 integration
+- **Performance Focused**: Custom Bootstrap build with 60% size reduction
+- **Extensible Foundation**: Clean, minimal codebase easy to modify and build upon
 
 ## Development Commands
 
@@ -27,19 +27,20 @@ This is a **personal WordPress theme** called "wpforpro" for the wpforpro.com bl
 
 ### Initial Setup
 ```bash
-npm install
-npm run build
+npm install        # Install dependencies
+npm run dev        # Start development server
+npm run build      # Build for production
 ```
 
 ## Architecture
 
-### Modern WordPress Theme Structure
-This is a modern WordPress theme built on Underscores (_s) foundation with:
+### WordPress Theme Framework Structure
+This is a modern WordPress theme framework built on Underscores (_s) foundation with:
 
 - **Vite Build System**: ES6+ modules, SASS preprocessing, HMR in development
 - **Bootstrap 5 Integration**: Custom build with 60% size reduction 
-- **SASS 7-1 Architecture**: Complete implementation with organized stylesheets
-- **Component-Driven Design**: Modular template blocks and parts
+- **Clean Architecture**: Minimal, extensible foundation for custom development
+- **Developer-First**: Built for experienced developers to modify and extend
 
 ### Key Entry Points
 - `src/js/main.js` - Frontend JavaScript entry point
@@ -52,21 +53,21 @@ This is a modern WordPress theme built on Underscores (_s) foundation with:
 - **Production**: Built assets in `/dist` with automatic file versioning
 - **Images**: Static assets copied from `/assets/images` to `/dist/assets/images`
 
-### Modular Architecture
+### Framework Architecture
 - `/inc/` - WordPress functionality modules:
-  - `seo-functions.php` - SEO enhancements and meta tags
-  - `site-config.php` - Centralized site configuration 
+  - `site-config.php` - Basic configuration system (modify as needed)
   - `template-functions.php` - Custom theme functions
   - `walker-nav-class.php` - Bootstrap 5 navigation walker
+  - `seo-functions.php` - SEO enhancements and meta tags
 
-- `/template-blocks/` - Custom content blocks:
-  - `resources-and-guides.php` - Featured tutorials grid
-  - `recent-posts.php` - Blog posts display
-  - `hosting-providers-grid.php` - Service provider listings
+- `/template-blocks/` - Example content blocks:
+  - `recent-posts.php` - Simple recent posts example
 
 - `/template-parts/` - Reusable template components:
   - Content display components (`content-*.php`)
   - Navigation components (`main-nav.php`)
+
+**Developer Notes**: Modify, replace, or extend these components as needed for your projects.
 
 ### Vite Configuration Details
 - **Development server**: Port 3001 with CORS enabled
@@ -113,26 +114,29 @@ The theme uses intelligent asset loading in `functions.php:167-234`:
 
 ## Development Philosophy
 
-Since this is a **personal theme for a full-stack WordPress developer**, the development approach prioritizes:
+This **WordPress theme framework for experienced developers** prioritizes:
 
 - **Developer Experience**: Modern tooling, hot reloading, optimized build processes
 - **Performance Over Compatibility**: Aggressive optimizations, custom builds, modern CSS/JS
-- **Code Quality**: Industry-standard architecture patterns (SASS 7-1, component-driven design)
-- **Personal Needs**: Tailored specifically for wpforpro.com blog requirements
-- **No Universal Support**: Not designed for theme marketplace or non-technical users
+- **Code Quality**: Industry-standard architecture patterns (SASS 7-1, clean code)
+- **Professional Foundation**: Solid starting point for client projects
+- **Developer Freedom**: Easy to modify, extend, or replace any component
 
-**Code Decisions:**
-- Use modern ES6+ JavaScript without legacy browser support
+**Framework Decisions:**
+- Use modern ES6+ JavaScript and build tools
 - Implement advanced SASS features and custom Bootstrap builds
-- Prioritize performance and maintainability over broad compatibility
-- Focus on blog-specific functionality rather than general-purpose features
+- Prioritize performance and maintainability
+- Provide clean foundation rather than complex feature systems
+- Focus on extensibility for diverse project needs
 
 ## Development Notes
 
 - **Node.js v16+** required for development
-- **CSS**: Always edit `.scss` files, never `.css` (compiled from SASS)
-- **Standards**: Follows WordPress coding standards but prioritizes modern practices
+- **Target Audience**: Experienced WordPress theme developers
+- **CSS**: Framework expects SASS workflow (create `src/sass/` directory)
+- **Standards**: Follows WordPress coding standards with modern development practices
 - **Bootstrap**: Custom build with only essential components (60% size reduction)
-- **Performance**: All decisions favor speed and efficiency over universal compatibility
-- **Personal Use**: Optimized specifically for wpforpro.com blog needs
+- **Performance**: All decisions favor speed and efficiency
+- **Extensible**: Modify any part of the framework to fit project needs
+- **Client Ready**: Professional foundation suitable for client projects
 

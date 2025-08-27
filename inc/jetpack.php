@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package wp_modern_starter_main_theme
+ * @package wp_modern_starter
  */
 
 /**

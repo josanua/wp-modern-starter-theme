@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package wp_modern_starter_main_theme
+ * @package wp_modern_starter
  */
 
 if ( ! function_exists( 'wp_modern_starter_posted_on' ) ) :
