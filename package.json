@@ -1,0 +1,35 @@
+{
+  "name": "wp-modern-starter",
+  "version": "1.0.0",
+  "description": "Modern WordPress starter theme framework with Vite build system, ES6+ modules, Bootstrap 5, and SASS 7-1 architecture.",
+  "author": "Your Name Here",
+  "license": "GPL-2.0-or-later",
+  "type": "module",
+  "keywords": [
+    "WordPress",
+    "starter-theme",
+    "vite",
+    "bootstrap",
+    "sass",
+    "modern"
+  ],
+  "homepage": "https://yourwebsite.com",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "vite": "^7.0.5",
+    "vite-plugin-live-reload": "^3.0.5",
+    "vite-plugin-static-copy": "^3.1.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "sass": "^1.80.4"
+  }
+}
