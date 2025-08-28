@@ -3,7 +3,7 @@ import liveReload from 'vite-plugin-live-reload'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import { resolve } from 'path'
 
-const localDevPath = 'http://localhost:8888/'
+const localDevPath = 'http://theme-vite-framework.test/'
 
 export default defineConfig({
   plugins: [

@@ -2,10 +2,10 @@
 
 > **A modern WordPress starter theme framework for experienced developers**
 
-A professional WordPress theme framework built on Underscores foundation with modern development tools and architecture. Designed specifically for **experienced WordPress theme developers** who want a solid, performant starting point for custom projects.
+A professional WordPress theme framework built on Underscores foundation with modern development tools. Designed specifically for **experienced WordPress theme developers** who want a clean, performant starting point for custom projects.
 
 [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
-[![WordPress](https://img.shields.io/badge/WordPress-6.4+-blue.svg)](https://wordpress.org/)
+[![WordPress](https://img.shields.io/badge/WordPress-6.0+-blue.svg)](https://wordpress.org/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.3-purple.svg)](https://getbootstrap.com/)
 [![Vite](https://img.shields.io/badge/Vite-7.0+-646CFF.svg)](https://vitejs.dev/)
 
@@ -21,21 +21,15 @@ This framework is **not** for end-users or beginners. It's designed for:
 
 ### Modern Development Stack
 - **Vite Build System** - Fast development server with HMR
-- **Bootstrap 5.3.3** - Custom build with 60% size reduction
-- **SASS 7-1 Architecture** - Industry-standard CSS organization
-- **ES6+ JavaScript** - Modern JavaScript with proper module structure
-- **WordPress Best Practices** - Clean, semantic code following WP standards
-
-### Performance Optimized
-- **Custom Bootstrap Build** - Only essential components (200KB → 90KB)
-- **Intelligent Asset Loading** - Automatic dev/production mode detection
-- **Modern CSS/JS** - Optimized for performance, not legacy compatibility
-- **Clean Architecture** - Minimal overhead, maximum customization potential
+- **Bootstrap 5.3.3** - CDN integration with Font Awesome
+- **Clean Architecture** - Minimal, extensible foundation
+- **ES6+ JavaScript** - Modern JavaScript structure
+- **WordPress Best Practices** - Clean, semantic code
 
 ### Developer Experience
 - **Hot Module Replacement** - Instant updates during development
 - **Automatic Browser Refresh** - PHP file changes trigger page reload
-- **Clean Codebase** - Well-organized, commented, and documented
+- **Clean Codebase** - Well-organized, minimal structure
 - **Extensible Foundation** - Easy to modify and build upon
 
 ## 🚀 Quick Start
@@ -44,7 +38,6 @@ This framework is **not** for end-users or beginners. It's designed for:
 - **Node.js 16+** 
 - **WordPress 6.0+**
 - **PHP 7.4+**
-- **Basic WordPress theme development knowledge**
 
 ### Installation
 
@@ -72,19 +65,25 @@ npm run build       # Build production assets
 npm run clean       # Remove dist directory
 ```
 
-## 📁 Architecture Overview
+## 📁 Architecture
 
 ```
 your-theme/
-├── src/js/                 # JavaScript source files
+├── src/js/                 # JavaScript source files (create as needed)
 │   ├── main.js            # Frontend entry point
 │   ├── admin.js           # Admin scripts
 │   └── blocks.js          # Block editor scripts
 ├── assets/                # Static assets
 ├── dist/                  # Built assets (auto-generated)
 ├── inc/                   # WordPress functionality
+│   ├── site-config.php    # Basic configuration
+│   ├── template-functions.php
+│   ├── template-tags.php
+│   ├── customizer.php
+│   └── walker-nav-class.php
 ├── template-parts/        # Reusable template components
 ├── template-blocks/       # Custom content blocks
+│   └── recent-posts.php   # Example posts display
 ├── functions.php          # Main theme functions
 └── vite.config.js         # Build configuration
 ```
@@ -97,27 +96,27 @@ your-theme/
 - **Automatic Detection**: Switches based on `WP_DEBUG` and dev server status
 
 ### Bootstrap 5 Integration
-- **Custom Build**: Only essential components included
-- **Performance Focused**: 60% size reduction from standard Bootstrap
+- **CDN Loading**: Bootstrap 5.3.3 + Font Awesome 6 from CDN
+- **Custom Walker**: Bootstrap-compatible navigation
 - **Modern Grid**: Flexbox-based responsive system
-- **Accessibility**: ARIA labels and semantic markup
 
-### SASS 7-1 Architecture
-- **Organized Stylesheets**: Industry-standard folder structure
-- **Maintainable CSS**: Modular, scalable stylesheet organization
-- **Custom Variables**: Easy theme customization
-- **Component-Based**: Reusable UI components
+### Clean Foundation
+- **Minimal Setup**: Essential WordPress features only
+- **Modern Structure**: Clean, organized codebase
+- **Easy Customization**: Modify any part to fit your needs
 
 ## 🛠️ Customization
 
 ### Basic Configuration
-Edit `inc/site-config.php` for basic theme settings:
+Edit `inc/site-config.php` for basic settings:
 
 ```php
-'site' => [
-    'author' => 'Your Name Here',
-    'description' => 'Your site description'
-],
+private static $config = [
+    'site' => [
+        'author' => 'Your Name Here',
+        'description' => 'Modern WordPress starter theme'
+    ]
+];
 ```
 
 ### Build System
@@ -127,13 +126,12 @@ Modify `vite.config.js` for build customization:
 - Adjust development server settings
 
 ### Styling
-- **Source**: Edit SASS files (create `src/sass/` directory)
-- **Variables**: Customize in `src/sass/abstracts/_variables.scss`
-- **Components**: Add components in `src/sass/components/`
+- Create `src/sass/` directory for your styles
+- Set up your preferred SASS architecture
+- Customize Bootstrap variables as needed
 
 ### JavaScript
 - **Entry Points**: `src/js/main.js`, `admin.js`, `blocks.js`
-- **Modules**: Create reusable modules in `src/js/modules/`
 - **Modern Syntax**: ES6+, imports/exports, async/await
 
 ## 🎨 What's Included
@@ -141,19 +139,16 @@ Modify `vite.config.js` for build customization:
 ### Template Files
 - Complete WordPress template hierarchy
 - Semantic HTML5 markup
-- Accessibility features built-in
-- Clean, commented code
+- Clean, minimal code structure
 
 ### Components
 - Bootstrap 5 navigation with custom walker
-- Responsive image handling
-- Comment system integration
-- Search functionality
+- Simple recent posts example
+- Basic footer structure
 
 ### Build Tools
 - **Vite** for fast development and optimized builds
-- **PostCSS** for CSS processing
-- **Autoprefixer** for browser compatibility
+- **Live reload** for PHP file changes
 - **File versioning** for cache busting
 
 ## 📋 Developer Notes
@@ -161,7 +156,7 @@ Modify `vite.config.js` for build customization:
 ### This Framework Is For You If:
 - ✅ You build custom WordPress themes professionally
 - ✅ You're comfortable with modern JavaScript and build tools
-- ✅ You want a performance-optimized starting point
+- ✅ You want a clean starting point without bloat
 - ✅ You prefer to customize code rather than use admin options
 - ✅ You understand WordPress template hierarchy and hooks
 

@@ -7,7 +7,7 @@ Quick setup guide for experienced WordPress developers using this theme framewor
 - **Node.js 16+** with npm
 - **WordPress 6.0+** development environment
 - **PHP 7.4+**
-- Basic familiarity with Vite, SASS, and modern JavaScript
+- Basic familiarity with Vite and modern JavaScript
 
 ## Installation
 
@@ -37,8 +37,8 @@ npm run dev
 ## Development Workflow
 
 ### Asset Development
-- **JavaScript**: Edit files in `src/js/` (main.js, admin.js, blocks.js)
-- **Styles**: Create `src/sass/` directory and build your SASS architecture
+- **JavaScript**: Create files in `src/js/` (main.js, admin.js, blocks.js)
+- **Styles**: Create `src/sass/` directory for your SASS files
 - **Static Assets**: Place images, fonts, etc. in `assets/`
 
 ### Development Server
@@ -52,7 +52,7 @@ npm run build    # Creates optimized assets in dist/
 npm run clean    # Removes dist/ directory
 ```
 
-## Framework Customization
+## Framework Structure
 
 ### Basic Configuration
 Edit `inc/site-config.php`:
@@ -61,10 +61,6 @@ private static $config = [
     'site' => [
         'author' => 'Your Name',
         'description' => 'Your site description'
-    ],
-    'content' => [
-        'posts_per_page' => 6,
-        'excerpt_length' => 25
     ]
 ];
 ```
@@ -74,7 +70,6 @@ Modify `vite.config.js` to:
 - Add new JavaScript entry points
 - Configure asset paths
 - Adjust development server settings
-- Add build plugins
 
 ### Template Structure
 - **Main Templates**: Follow WordPress template hierarchy
@@ -86,39 +81,28 @@ Modify `vite.config.js` to:
 ### Adding New JavaScript Entry Point
 1. Create file in `src/js/`
 2. Add to `vite.config.js` rollupOptions.input
-3. Enqueue in `functions.php` asset loading logic
+3. Update `functions.php` asset loading logic
 
-### SASS Architecture Setup
+### SASS Setup
 ```bash
-# Create SASS structure (not included by default)
-mkdir -p src/sass/{abstracts,base,components,layouts,pages,utilities,vendors}
+# Create SASS structure
+mkdir -p src/sass/{abstracts,base,components,layouts,pages,utilities}
 ```
 
-### Custom Bootstrap Build
-- Framework includes custom Bootstrap with essential components only
-- Modify Bootstrap imports by editing Bootstrap-related files
-- Rebuilds automatically with `npm run build`
-
-## WordPress Integration
-
-### Theme Functions
+### WordPress Integration
 - Main functions in `functions.php`
-- Modular functions in `inc/` directory
-- Configuration helpers available via `site_config()`
+- Configuration helpers via `site_config()`
+- Bootstrap 5 + Font Awesome loaded from CDN
 
-### Asset Loading
-- **Development**: Assets from Vite dev server (`localhost:3001`)
-- **Production**: Assets from `dist/` with versioning
-- **Automatic**: Switches based on `WP_DEBUG` and dev server status
+## Asset Loading
 
-### Template Usage
-```php
-// Get config values
-$author = site_config('site.author', 'Default Name');
+### Development Mode
+- Assets served from Vite dev server (`localhost:3001`)
+- Automatic detection when `WP_DEBUG` is true and dev server running
 
-// Use in templates
-echo esc_html($author);
-```
+### Production Mode
+- Assets loaded from `dist/` directory
+- Automatic file versioning for cache busting
 
 ## Production Deployment
 
@@ -132,7 +116,6 @@ npm run build
 - [ ] Run `npm run build`
 - [ ] Test that assets load from `dist/` directory
 - [ ] Verify all functionality without dev server
-- [ ] Check asset versioning for cache busting
 
 ### File Structure for Deployment
 ```
@@ -166,18 +149,16 @@ theme-folder/
 
 ### Development Server Issues
 - Port 3001 might be in use - check `vite.config.js`
-- Firewall might block dev server
 - Check network connectivity to `localhost:3001`
 
 ## Next Steps
 
 This framework provides the foundation. Common next steps:
 1. **Set up SASS architecture** in `src/sass/`
-2. **Customize Bootstrap variables** and components
-3. **Add your JavaScript modules** in `src/js/modules/`
-4. **Create custom template parts** for your design
-5. **Implement your custom post types** and fields
-6. **Add build optimizations** in `vite.config.js`
+2. **Create your JavaScript modules** in `src/js/`
+3. **Customize template parts** for your design
+4. **Implement custom post types** and fields
+5. **Add build optimizations** in `vite.config.js`
 
 ---
 
