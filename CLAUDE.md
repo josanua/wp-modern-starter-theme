@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is **WP Modern Starter**, a WordPress theme framework for experienced developers. Built on the Underscores (_s) foundation with modern development tools, this framework provides a solid starting point for custom theme development.
+This is **WP Modern Starter**, a clean WordPress theme framework for experienced developers. Built on Underscores foundation with modern development tools, providing a minimal starting point for custom theme development.
 
 **Key Characteristics:**
 - **Developer Framework**: Designed for experienced WordPress theme developers
-- **Client Project Ready**: Professional starting point for custom themes
-- **Modern Architecture**: Vite build system, SASS 7-1, Bootstrap 5 integration
-- **Performance Focused**: Custom Bootstrap build with 60% size reduction
-- **Extensible Foundation**: Clean, minimal codebase easy to modify and build upon
+- **Clean Foundation**: Minimal, extensible codebase without bloat
+- **Modern Tools**: Vite build system with HMR
+- **CDN Integration**: Bootstrap 5.3.3 + Font Awesome 6 from CDN
+- **Professional Ready**: Suitable foundation for client projects
 
 ## Development Commands
 
@@ -35,71 +35,73 @@ npm run build      # Build for production
 ## Architecture
 
 ### WordPress Theme Framework Structure
-This is a modern WordPress theme framework built on Underscores (_s) foundation with:
+This is a clean WordPress theme framework built on Underscores foundation with:
 
-- **Vite Build System**: ES6+ modules, SASS preprocessing, HMR in development
-- **Bootstrap 5 Integration**: Custom build with 60% size reduction 
-- **Clean Architecture**: Minimal, extensible foundation for custom development
+- **Vite Build System**: Modern development server with HMR
+- **Bootstrap 5 Integration**: CDN-loaded with Font Awesome 6
+- **Clean Architecture**: Minimal, extensible foundation
 - **Developer-First**: Built for experienced developers to modify and extend
 
 ### Key Entry Points
-- `src/js/main.js` - Frontend JavaScript entry point
-- `src/js/admin.js` - Admin area JavaScript 
-- `src/js/blocks.js` - Block editor JavaScript
-- Main stylesheet loaded via Vite build process
+- `src/js/main.js` - Frontend JavaScript entry point (create as needed)
+- `src/js/admin.js` - Admin area JavaScript (create as needed)
+- `src/js/blocks.js` - Block editor JavaScript (create as needed)
+- Styles loaded via Vite or create `src/sass/` directory
 
 ### Asset Management
 - **Development**: Assets served from Vite dev server with HMR
 - **Production**: Built assets in `/dist` with automatic file versioning
-- **Images**: Static assets copied from `/assets/images` to `/dist/assets/images`
+- **Static Assets**: Place in `/assets/` directory
 
 ### Framework Architecture
 - `/inc/` - WordPress functionality modules:
-  - `site-config.php` - Basic configuration system (modify as needed)
+  - `site-config.php` - Basic configuration system (minimal)
   - `template-functions.php` - Custom theme functions
+  - `template-tags.php` - Template helper functions
+  - `customizer.php` - WordPress customizer integration
   - `walker-nav-class.php` - Bootstrap 5 navigation walker
-  - `seo-functions.php` - SEO enhancements and meta tags
 
 - `/template-blocks/` - Example content blocks:
   - `recent-posts.php` - Simple recent posts example
 
 - `/template-parts/` - Reusable template components:
   - Content display components (`content-*.php`)
-  - Navigation components (`main-nav.php`)
+  - Navigation and other reusable parts
 
-**Developer Notes**: Modify, replace, or extend these components as needed for your projects.
+**Developer Notes**: This is a minimal foundation. Modify, replace, or extend any components as needed.
 
 ### Vite Configuration Details
 - **Development server**: Port 3001 with CORS enabled
-- **Entry points**: main.js, admin.js, blocks.js
+- **Entry points**: main.js, admin.js, blocks.js (create as needed)
 - **Asset output**: Organized by type in `/dist/assets/`
 - **PHP integration**: Automatic detection of dev vs production mode
 - **Live reload**: Watches PHP files for changes during development
 
 ### Asset Loading Strategy
-The theme uses intelligent asset loading in `functions.php:167-234`:
+The theme uses intelligent asset loading in `functions.php`:
 - Detects if Vite dev server is running
 - Development: Loads module script directly from Vite server
 - Production: Loads built assets with file modification timestamps
-- Conditionally loads admin and blocks assets based on context
+- External dependencies (Bootstrap, Font Awesome) loaded from CDN
 
 ### Styling Architecture
-- SASS 7-1 pattern (though source files may need to be created in `/src/sass/`)
-- Bootstrap 5 custom build for optimal performance
-- CSS loaded through Vite build process, not WordPress enqueue
+- Framework expects developers to create their own `src/sass/` structure
+- Bootstrap 5 loaded from CDN (not bundled)
+- CSS loaded through Vite build process when source files exist
+- Clean, minimal foundation for custom styling
 
-### Key Configuration Constants
+### Key Configuration
 - `VITE_SERVER` - Development server URL (http://localhost:3001/)
 - `VITE_ENTRY_POINT` - Main JavaScript entry point (src/js/main.js)
-- Google Fonts integration via constants in functions.php
+- Basic site configuration in `inc/site-config.php`
 
 ## Development Workflow
 
 ### Starting Development
 1. `npm run dev` - Starts Vite dev server with HMR
 2. Ensure WordPress `WP_DEBUG` is true for development mode
-3. Assets automatically reload on changes to JS/SASS files
-4. PHP files trigger browser refresh via live-reload plugin
+3. Create `src/js/` and `src/sass/` directories as needed
+4. Assets automatically reload on changes
 
 ### Building for Production  
 1. `npm run build` - Creates optimized production assets
@@ -107,36 +109,33 @@ The theme uses intelligent asset loading in `functions.php:167-234`:
 3. CSS/JS automatically minified and optimized
 
 ### WordPress Integration Notes
-- Theme follows WordPress coding standards and template hierarchy
-- Custom post types and fields managed through site-config.php
-- SEO functionality separate from plugin dependencies
-- Bootstrap 5 navigation requires custom walker class
+- Clean, minimal WordPress theme structure
+- Bootstrap 5 navigation with custom walker class
+- CDN loading for external dependencies
+- Essential WordPress features only
 
 ## Development Philosophy
 
 This **WordPress theme framework for experienced developers** prioritizes:
 
-- **Developer Experience**: Modern tooling, hot reloading, optimized build processes
-- **Performance Over Compatibility**: Aggressive optimizations, custom builds, modern CSS/JS
-- **Code Quality**: Industry-standard architecture patterns (SASS 7-1, clean code)
-- **Professional Foundation**: Solid starting point for client projects
+- **Clean Foundation**: Minimal starting point without unnecessary features
 - **Developer Freedom**: Easy to modify, extend, or replace any component
+- **Modern Tools**: Vite build system with HMR and live reload
+- **Professional Quality**: Production-ready foundation for client projects
+- **Performance**: CDN loading, minimal overhead, optimized builds
 
-**Framework Decisions:**
-- Use modern ES6+ JavaScript and build tools
-- Implement advanced SASS features and custom Bootstrap builds
-- Prioritize performance and maintainability
-- Provide clean foundation rather than complex feature systems
-- Focus on extensibility for diverse project needs
+**Framework Approach:**
+- Provide essential structure, let developers build the rest
+- Modern development workflow without complexity
+- Clean, readable code that's easy to understand and modify
+- No vendor lock-in or proprietary systems
 
 ## Development Notes
 
 - **Node.js v16+** required for development
 - **Target Audience**: Experienced WordPress theme developers
-- **CSS**: Framework expects SASS workflow (create `src/sass/` directory)
-- **Standards**: Follows WordPress coding standards with modern development practices
-- **Bootstrap**: Custom build with only essential components (60% size reduction)
-- **Performance**: All decisions favor speed and efficiency
-- **Extensible**: Modify any part of the framework to fit project needs
+- **Minimal by Design**: Create your own SASS architecture as needed
+- **CDN Integration**: Bootstrap and Font Awesome loaded externally
+- **Clean Structure**: Essential WordPress features and modern build tools
+- **Extensible**: Framework designed to be modified and extended
 - **Client Ready**: Professional foundation suitable for client projects
-

@@ -3,10 +3,9 @@ import liveReload from 'vite-plugin-live-reload'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import { resolve } from 'path'
 
-const localDevPath = 'http://theme-vite-framework.test/'
-
 export default defineConfig({
   plugins: [
+    // Live reload for PHP files
     liveReload([__dirname + '/**/*.php']),
     
     // Copy static assets
@@ -24,70 +23,51 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
-    manifest: false,
     rollupOptions: {
       input: {
-        main: resolve(__dirname + '/src/js/main.js'),
-        admin: resolve(__dirname + '/src/js/admin.js'),
-        blocks: resolve(__dirname + '/src/js/blocks.js')
+        main: resolve(__dirname, 'src/js/main.js')
+        // Add more entry points as needed:
+        // admin: resolve(__dirname, 'src/js/admin.js'),
+        // blocks: resolve(__dirname, 'src/js/blocks.js')
       },
       output: {
         entryFileNames: '[name].js',
-        chunkFileNames: '[name][hash].js',
+        chunkFileNames: '[name].[hash].js',
         assetFileNames: (assetInfo) => {
-          let extType = assetInfo.name.split('.')
-          let extSuffix = extType[extType.length - 1]
-          return `assets/${extSuffix}/[name][extname]`
+          const extType = assetInfo.name.split('.');
+          const extSuffix = extType[extType.length - 1];
+          return `assets/${extSuffix}/[name].[extname]`;
         }
       }
-    },
-    minify: true
+    }
   },
   
   // Development server
   server: {
     cors: true,
-    strictPort: true,
     port: 3001,
-    open: localDevPath,
-    https: false,
     hmr: {
-      host: 'localhost',
-      protocol: 'ws'
+      host: 'localhost'
     }
   },
   
-  // Source map configuration
-  esbuild: {
-    sourcemap: true
-  },
-  
-  // CSS configuration
+  // CSS preprocessing
   css: {
-    // PostCSS configuration will be loaded from postcss.config.js
-    devSourcemap: true, // Enable source maps in development
+    devSourcemap: true,
     preprocessorOptions: {
       scss: {
-        // Enable source maps for SCSS
-        sourceMap: true,
-        sourceMapContents: true
+        sourceMap: true
       }
     }
   },
   
-  // Resolve configuration
+  // Resolve aliases
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
-      '@styles': resolve(__dirname, 'src/sass'),
-      '@scripts': resolve(__dirname, 'src/js'),
+      '@js': resolve(__dirname, 'src/js'),
+      '@sass': resolve(__dirname, 'src/sass'),
       '@assets': resolve(__dirname, 'assets')
     }
-  },
-  
-  // Define global constants
-  define: {
-    __THEME_VERSION__: JSON.stringify(process.env.npm_package_version || '1.0.0'),
-    __DEV__: JSON.stringify(process.env.NODE_ENV === 'development')
   }
 })
