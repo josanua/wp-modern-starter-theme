@@ -98,10 +98,61 @@ The theme uses intelligent asset loading in `functions.php`:
 ## Development Workflow
 
 ### Starting Development
-1. `npm run dev` - Starts Vite dev server with HMR
-2. Ensure WordPress `WP_DEBUG` is true for development mode
-3. Create `src/js/` and `src/sass/` directories as needed
-4. Assets automatically reload on changes
+1. `npm run dev` - Starts Vite dev server with HMR on localhost:3001
+2. **MANDATORY**: Set `WP_DEBUG = true` in `wp-config.php` for development mode
+3. Access WordPress site through local environment (e.g., http://yoursite.test)
+4. Assets automatically load from Vite server, changes reload instantly
+5. Create `src/js/` and `src/sass/` directories as needed
+
+### CRITICAL: WP_DEBUG Configuration
+
+**MANDATORY for Live Reload**: You MUST set `WP_DEBUG = true` in your `wp-config.php`:
+
+```php
+// wp-config.php
+define('WP_DEBUG', true);
+```
+
+#### How Asset Loading Works
+
+The theme intelligently switches between development and production modes:
+
+**Development Mode** (`WP_DEBUG = true` + Vite server running):
+- Assets load from Vite dev server (`localhost:3001`)
+- Includes `@vite/client` for WebSocket live reload connection
+- PHP file changes trigger browser refresh via `vite-plugin-live-reload`
+- JavaScript/CSS changes update instantly via HMR
+
+**Production Mode** (`WP_DEBUG = false` OR Vite server not running):
+- Assets load from built files in `/dist/` directory
+- No live reload functionality - optimized for performance
+- Automatic file versioning for cache busting
+
+#### Troubleshooting Live Reload
+
+If live reload isn't working, check browser console. You should see:
+
+```javascript
+// ✅ Development mode (working):
+WP_DEBUG: true
+Vite server running: true
+Vite dev server connected - live reload enabled
+[vite] connecting...
+[vite] connected.
+
+// ❌ Production mode (WP_DEBUG disabled):
+WP_DEBUG: false
+Vite server running: true
+Loading production assets
+```
+
+#### The Live Reload Process
+
+1. **File Watch**: `vite-plugin-live-reload` monitors PHP files
+2. **WebSocket**: `@vite/client` maintains connection to Vite server
+3. **Change Detection**: Plugin detects PHP file changes
+4. **Reload Signal**: Sends reload message via WebSocket
+5. **Browser Refresh**: Client triggers `window.location.reload()`
 
 ### Building for Production  
 1. `npm run build` - Creates optimized production assets
