@@ -17,24 +17,19 @@ get_header();
 <main id="primary" class="site-main">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		
-		<!-- Hero Section with Design System -->
-		<section class="hero-section section--spacing-bottom">
+		<section class="page-header py-5 text-center">
 			<div class="container">
-				<div class="hero-section__content">
-					<div class="hero-section__text">
-						<h1 class="hero-section__title">Design System Test Page</h1>
-						<p class="hero-section__description">
-							Complete showcase of WPForPro design tokens, components, and utilities
-						</p>
-						<div class="hero-section__actions">
-							<a href="#colors" class="hero-section__cta hero-section__cta--primary">
-								<i class="fas fa-palette"></i> View Colors
-							</a>
-							<a href="#components" class="hero-section__cta hero-section__cta--secondary">
-								<i class="fas fa-cubes"></i> Components
-							</a>
-						</div>
-					</div>
+				<h1 class="display-4 mb-4">Design System Test Page</h1>
+				<p class="lead mb-4">
+					Complete showcase of design tokens, components, and utilities
+				</p>
+				<div class="d-flex gap-3 justify-content-center">
+					<a href="#colors" class="btn btn-primary">
+						<i class="fas fa-palette"></i> View Colors
+					</a>
+					<a href="#components" class="btn btn-outline-primary">
+						<i class="fas fa-cubes"></i> Components
+					</a>
 				</div>
 			</div>
 		</section>
@@ -161,13 +156,13 @@ get_header();
 					<div class="col-md-6">
 						<h3 class="text-2xl font-semibold ds-mb-md">Link Buttons</h3>
 						<div class="d-flex flex-column gap-3">
-							<a href="#" class="hero-section__cta hero-section__cta--primary">
-								<i class="fas fa-download"></i> Hero Primary CTA
+							<a href="#" class="btn btn-primary">
+								<i class="fas fa-download"></i> Primary Link Button
 							</a>
-							<a href="#" class="hero-section__cta hero-section__cta--secondary">
-								<i class="fas fa-info-circle"></i> Hero Secondary CTA
+							<a href="#" class="btn btn-outline-primary">
+								<i class="fas fa-info-circle"></i> Secondary Link Button
 							</a>
-							<a href="#" class="posts-section__more-link">
+							<a href="#" class="text-decoration-none">
 								Text Link with Arrow <i class="fas fa-arrow-right"></i>
 							</a>
 						</div>

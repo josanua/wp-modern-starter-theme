@@ -60,10 +60,23 @@ npm run build
 ### Development Commands
 
 ```bash
-npm run dev         # Start Vite dev server (localhost:3001)
+npm run dev         # Start Vite dev server (localhost:3001) - for assets only
 npm run build       # Build production assets
 npm run clean       # Remove dist directory
 ```
+
+**Important**: The Vite dev server (`localhost:3001`) only serves assets, not your WordPress site. You'll access your WordPress site through your local development environment (e.g., `http://yoursite.test` with Laravel Valet, or `http://localhost:8000` with other setups).
+
+## 🔄 Development Workflow
+
+1. **Start Vite dev server**: `npm run dev` (runs on localhost:3001)
+2. **Access WordPress site**: Open `http://yoursite.test` in your browser
+3. **Development magic**: 
+   - WordPress site loads normally
+   - Assets (JS/CSS) automatically load from Vite dev server
+   - JavaScript/CSS changes update instantly via HMR
+   - PHP file changes trigger browser refresh
+4. **Build for production**: `npm run build` when ready to deploy
 
 ## 📁 Architecture
 
@@ -91,7 +104,10 @@ your-theme/
 ## 🔧 Key Features
 
 ### Intelligent Asset Loading
-- **Development**: Assets served from Vite dev server with HMR
+- **Development**: 
+  - WordPress site runs on your local environment (e.g., `http://yoursite.test`)
+  - Assets (JS/CSS) served from Vite dev server (`localhost:3001`) with HMR
+  - PHP file changes trigger browser refresh on your WordPress site
 - **Production**: Optimized assets with automatic versioning
 - **Automatic Detection**: Switches based on `WP_DEBUG` and dev server status
 

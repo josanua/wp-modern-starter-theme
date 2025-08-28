@@ -3,6 +3,8 @@ import liveReload from 'vite-plugin-live-reload'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 import { resolve } from 'path'
 
+const localDevPath = 'http://theme-vite-framework.test/'
+
 export default defineConfig({
   plugins: [
     // Live reload for PHP files
@@ -23,6 +25,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    manifest: false,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/js/main.js')
@@ -45,11 +48,19 @@ export default defineConfig({
   // Development server
   server: {
     cors: true,
+    strictPort: true,
     port: 3001,
+    open: localDevPath,
     hmr: {
-      host: 'localhost'
+      host: 'localhost',
+      protocol: 'ws'
     }
   },
+
+    // Source map configuration
+    esbuild: {
+        sourcemap: true
+    },
   
   // CSS preprocessing
   css: {
@@ -69,5 +80,11 @@ export default defineConfig({
       '@sass': resolve(__dirname, 'src/sass'),
       '@assets': resolve(__dirname, 'assets')
     }
-  }
+  },
+
+    // Define global constants
+    define: {
+        __THEME_VERSION__: JSON.stringify(process.env.npm_package_version || '1.0.0'),
+        __DEV__: JSON.stringify(process.env.NODE_ENV === 'development')
+    }
 })

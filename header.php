@@ -43,14 +43,6 @@
 	<meta name="description" content="<?php echo esc_attr($page_description); ?>">
 	<?php endif; ?>
 	<?php // Note: Robots meta, canonical URLs, Open Graph, Twitter Cards, and Article meta tags are handled by Yoast SEO plugin ?>
-  
-  <?php if (GOOGLE_FONT_PATH !== "") : ?>
-    <!-- Google Fonts -->
-    <!-- https://web.dev/font-best-practices/ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="<?php echo GOOGLE_FONT_PATH ?>" rel="stylesheet">
-  <?php endif; ?>
 
 	<?php // Note: JSON-LD structured data is handled by Yoast SEO plugin ?>
 

@@ -58,16 +58,33 @@ function is_vite_dev_server_running() {
 
 // Enqueue scripts and styles
 function wp_modern_starter_scripts() {
-	if ( defined( 'WP_DEBUG' ) && WP_DEBUG && is_vite_dev_server_running() ) {
+	$wp_debug = defined( 'WP_DEBUG' ) && WP_DEBUG;
+	$vite_running = is_vite_dev_server_running();
+	
+	// Debug information
+	add_action('wp_head', function() use ( $wp_debug, $vite_running ) {
+		echo '<script>';
+		echo 'console.log("WP_DEBUG: ' . ($wp_debug ? 'true' : 'false') . '");';
+		echo 'console.log("Vite server running: ' . ($vite_running ? 'true' : 'false') . '");';
+		echo '</script>';
+	});
+	
+	if ( $wp_debug && $vite_running ) {
 		// Development: Load from Vite dev server
 		function vite_head_module_hook() {
+			echo '<script type="module" crossorigin src="' . VITE_SERVER . '@vite/client"></script>';
 			echo '<script type="module" crossorigin src="' . VITE_SERVER . VITE_ENTRY_POINT . '"></script>';
+			echo '<script>console.log("Vite dev server connected - live reload enabled");</script>';
 		}
 		add_action('wp_head', 'vite_head_module_hook');
 	} else {
 		// Production: Load built assets
 		$css_file = get_template_directory() . '/dist/assets/css/main.css';
 		$js_file = get_template_directory() . '/dist/main.js';
+		
+		add_action('wp_head', function() {
+			echo '<script>console.log("Loading production assets");</script>';
+		});
 		
 		if ( file_exists( $css_file ) ) {
 			wp_enqueue_style( 'wp-modern-starter-style', get_template_directory_uri() . '/dist/assets/css/main.css', [], filemtime( $css_file ) );

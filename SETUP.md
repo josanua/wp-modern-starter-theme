@@ -41,10 +41,16 @@ npm run dev
 - **Styles**: Create `src/sass/` directory for your SASS files
 - **Static Assets**: Place images, fonts, etc. in `assets/`
 
-### Development Server
-- Vite serves assets from `localhost:3001` during development
-- PHP file changes trigger browser refresh automatically
-- JavaScript/CSS changes update instantly via HMR
+### Development Environment
+- **WordPress Site**: `http://theme-vite-framework.test/` (or your local setup)
+- **Vite Dev Server**: `http://localhost:3001/` (assets only - don't browse directly)
+- **Workflow**: Browse your WordPress site, assets load from Vite server automatically
+
+### Development Workflow
+- **WordPress Site**: Access your site through your local environment (e.g., `http://yoursite.test` with Valet)
+- **Vite Dev Server**: Runs on `localhost:3001` - serves assets only (JS/CSS)
+- **Live Reload**: PHP file changes trigger browser refresh on your WordPress site
+- **HMR**: JavaScript/CSS changes update instantly without page refresh
 
 ### Building for Production
 ```bash

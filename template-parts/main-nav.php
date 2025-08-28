@@ -2,13 +2,10 @@
   <div class="container">
     <!-- Brand/Logo -->
     <a class="navbar-brand" href="<?php echo esc_url(home_url()) ?>">
-      <?php if (defined('SHOW_LOGO_IMAGE') && SHOW_LOGO_IMAGE) : ?>
-        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/wp_modern_starter-logo.png"
-             alt="<?php bloginfo('name')?>" 
-             height="40"
-             class="d-inline-block align-text-top" />
+      <?php if (has_custom_logo()) : ?>
+        <?php the_custom_logo(); ?>
       <?php else : ?>
-        <?php echo DOMAIN; ?>
+        <?php bloginfo('name'); ?>
       <?php endif; ?>
     </a>
 
