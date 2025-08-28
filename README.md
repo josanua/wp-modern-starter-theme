@@ -1,5 +1,7 @@
 # WP Modern Starter Theme Framework
 
+> **⚠️ Development Notice**: This framework is currently in active development. Source code may contain chunks from the current main wpforpro.com blog theme. Updates will be made in the future if necessary.
+
 > **A modern WordPress starter theme framework for experienced developers**
 
 A professional WordPress theme framework built on Underscores foundation with modern development tools. Designed specifically for **experienced WordPress theme developers** who want a clean, performant starting point for custom projects.
@@ -35,7 +37,7 @@ This framework is **not** for end-users or beginners. It's designed for:
 ## 🚀 Quick Start
 
 ### Prerequisites
-- **Node.js 16+** 
+- **Node.js 22+** 
 - **WordPress 6.0+**
 - **PHP 7.4+**
 

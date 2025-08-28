@@ -183,7 +183,7 @@ This **WordPress theme framework for experienced developers** prioritizes:
 
 ## Development Notes
 
-- **Node.js v16+** required for development
+- **Node.js v22+** required for development
 - **Target Audience**: Experienced WordPress theme developers
 - **Minimal by Design**: Create your own SASS architecture as needed
 - **CDN Integration**: Bootstrap and Font Awesome loaded externally

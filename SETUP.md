@@ -4,7 +4,7 @@ Quick setup guide for experienced WordPress developers using this theme framewor
 
 ## Prerequisites
 
-- **Node.js 16+** with npm
+- **Node.js 22+** with npm
 - **WordPress 6.0+** development environment
 - **PHP 7.4+**
 - Basic familiarity with Vite and modern JavaScript
